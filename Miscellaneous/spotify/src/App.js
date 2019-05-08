@@ -3,31 +3,45 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-      <Header/>
-       
+const authEndpoint = "https://accounts.spotify.com/authorize";
+const clientId = "1ae9d7e331e24b0b8413360563338962";
+const redirectUri = "http://localhost:3000/search";
+const responseType = "token";
 
-        <Route exact path='/' component={Home} />
-        <Route path='/search' component={ArtistSearch} />
-        <Route path='/artists/' component={ArtistsList} />
-        <Route path='/albums/:artistId' component={AlbumsList} />
 
-      </div>
-    </Router>
-  );
+
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
+        <Header/>
+        
+          <Route exact path='/' component={Home} />
+          <Route path='/search' component={ArtistSearch} />
+          <Route path='/artists/' component={ArtistsList} />
+          <Route path='/albums/:artistId' component={AlbumsList} />
+          <Route path='/callback' component={CallBack}/>
+
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
 
-function Home() {
-  return (
-    <button>
-      Log In
-    </button>
-  );
+class Home extends React.Component {
+  render() {
+    return (
+      <a
+        className="loginBtn"
+        href={authEndpoint + "?client_id=" + clientId + "&redirect_uri=" + redirectUri + 
+          "&scope=user-read-private%20user-read-email&response_type=" + responseType + "&state=" + 123}>
+        Login to Spotify
+      </a>
+    );
+  }
 }
 
 function ArtistSearch() {
@@ -60,6 +74,32 @@ function Header() {
   );
 }
 
+class CallBack extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: 0,    }
+  }
+  render() {
+    return(
+      this.state.token
+    );
+  }
+
+}
+
+function redirectUrlToSpotifyLogin() {
+  const clientId = "1ae9d7e331e24b0b8413360563338962";
+  const redirectUri = "http://localhost:3000/search";
+
+  return (
+    "https://accounts.spotify.com/authorize?client_id=" +
+    clientId +
+    "&redirect_uri=" +
+    redirectUri +
+    "&response_type=token"
+  );
+}
 
 /*
 function App() {
