@@ -3,6 +3,12 @@ import StarRatings from 'react-star-ratings';
 import styled from 'styled-components';
 
 class ArtistCard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.searchAlbums = this.searchAlbums.bind(this);
+  }
+
   convertPopularity() {
     const {popularity} = this.props.artist;
 
@@ -25,15 +31,20 @@ class ArtistCard extends React.Component {
     return total.toLocaleString();
   }
 
+  searchAlbums() {
+    console.log(this.props);
+    // this.props.history.push("/artist:artistId");
+  }
+
   render() {
     const {artist} = this.props;
 
     return (
-      <StyledCard>
+      <StyledCard onClick={this.searchAlbums}>
         {artist.images.length > 0 && <ResizedImage src={artist.images[0].url} alt="missing"></ResizedImage>}
         <StyledArtistDetails>
           <StyledArtistName>{artist.name}</StyledArtistName>
-          <StyledNumberFollowers> {this.formatFollowersNumber()} followers</StyledNumberFollowers>
+          <StyledNumberFollowers>{this.formatFollowersNumber()} followers</StyledNumberFollowers>
         </StyledArtistDetails>
         <StyledStarRatings>
           <StarRatings
@@ -51,7 +62,7 @@ export default ArtistCard;
 
 const StyledCard = styled.div`
   width: 280px;
-  height: 550px;
+  height: 450px;
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 20px;
@@ -60,8 +71,8 @@ const StyledCard = styled.div`
 `;
 
 const ResizedImage = styled.img`
-  max-height: "250";
-  max-width: 100%;
+  max-height: 250px;
+  width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -75,6 +86,7 @@ const StyledArtistName = styled.p`
 const StyledNumberFollowers = styled.p`
   font-size: 18px;
   color: grey;
+  line-height: 5px;
 `;
 
 const StyledArtistDetails = styled.p`
@@ -85,5 +97,4 @@ const StyledStarRatings = styled.div`
   margin-left: 10px;
   position: absolute;
   bottom: 0;
-
 `

@@ -40,6 +40,7 @@ class ArtistSearch extends React.Component {
 
   render() {
     return (
+      console.log(this.props.history),
       <div>
         <input type="text" placeholder="Search for an artist" value={this.state.searchedName} onChange={this.handleChange}></input>
         <ArtistsList artistsToDisplay={this.state.retrievedArtists} />
