@@ -4,12 +4,16 @@ import styled from 'styled-components';
 
 class ArtistsList extends React.Component {
 
+  // componentDidMount() {
+    
+  // }
+
   displayArtists() {
     const artistsList = this.props.artistsToDisplay;
     if (artistsList) {
       return (
         artistsList.map((artist) => {
-          return <ArtistCard  key={artist.id} artist={artist} />
+          return <ArtistCard key={artist.id} artist={artist} />
         })
       );
     } else {

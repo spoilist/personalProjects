@@ -25,7 +25,6 @@ class ArtistSearch extends React.Component {
     })
     .then(response => {
       this.setState({retrievedArtists: response.data.artists.items});
-      console.log(this.state.retrievedArtists);
     })
     .catch(error => {
       if (error.response.status === 401) {
@@ -40,7 +39,6 @@ class ArtistSearch extends React.Component {
 
   render() {
     return (
-      console.log(this.props.history),
       <div>
         <input type="text" placeholder="Search for an artist" value={this.state.searchedName} onChange={this.handleChange}></input>
         <ArtistsList artistsToDisplay={this.state.retrievedArtists} />

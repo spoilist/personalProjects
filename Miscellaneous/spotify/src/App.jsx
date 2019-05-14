@@ -3,7 +3,6 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ArtistSearch from "./ArtistSearch";
-import ArtistsList from "./ArtistsList";
 import AlbumsList from "./AlbumsList";
 import Login from "./Login";
 import Auth from "./Auth";
@@ -42,8 +41,7 @@ class App extends React.Component {
         
           <Route exact path='/' component={Login} />
           <Route path='/search' render={() => <ArtistSearch authToken={authToken}/>} />
-          <Route path='/artists/' render={() => <ArtistsList authToken={authToken}/>} />
-          <Route path='/albums/:artistId' render={() => <AlbumsList authToken={authToken}/>} />
+          <Route path='/albums/:artistId' render={({match}) => <AlbumsList authToken={authToken} match={match.params.artistId} />} />
 
         </div>
       </Router>
