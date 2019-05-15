@@ -6,7 +6,7 @@ import ArtistSearch from "./ArtistSearch";
 import AlbumsList from "./AlbumsList";
 import Login from "./Login";
 import Auth from "./Auth";
-
+import styled from "styled-components";
 
 class App extends React.Component {
   constructor(props) {
@@ -53,8 +53,12 @@ export default App;
 
 function Header() {
   return(
-    <header className="App-header">
+    <StyledHeader className="App-header">
       Spotify Artist Search
-    </header>
+    </StyledHeader>
   );
 }
+
+const StyledHeader = styled.header `
+  height: 6vh;
+`
