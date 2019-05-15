@@ -6,7 +6,7 @@ class ArtistsList extends React.Component {
 
   // componentDidMount() {
     
-  // }
+  // 
 
   displayArtists() {
     const artistsList = this.props.artistsToDisplay;
