@@ -75,6 +75,7 @@ const StyledCard = styled.div`
   margin-bottom: 20px;
   border-style: solid;
   position: relative;
+  background-color: white;
 `;
 
 const ResizedImage = styled.div`

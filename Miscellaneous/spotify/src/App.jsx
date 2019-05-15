@@ -35,15 +35,15 @@ class App extends React.Component {
 
     return (
       <Router>
-        <div className="Hello">
-        <Header/>
-        <Auth onGetAuthToken={this.setAuthToken}/>
-        
-          <Route exact path='/' component={Login} />
-          <Route path='/search' render={() => <ArtistSearch authToken={authToken}/>} />
-          <Route path='/albums/:artistId' render={({match}) => <AlbumsList authToken={authToken} match={match.params.artistId} />} />
-
-        </div>
+        <ArtistSearchApp>
+          <StyledHeader>
+            <HeaderText>Spotify Artist Search</HeaderText>
+          </StyledHeader>
+          <Auth onGetAuthToken={this.setAuthToken}/>
+            <Route exact path='/' component={Login} />
+            <Route path='/search' render={() => <ArtistSearch authToken={authToken}/>} />
+            <Route path='/albums/:artistId' render={({match}) => <AlbumsList authToken={authToken} match={match.params.artistId} />} />
+        </ArtistSearchApp>
       </Router>
     );
   }
@@ -51,14 +51,26 @@ class App extends React.Component {
 
 export default App;
 
-function Header() {
-  return(
-    <StyledHeader className="App-header">
-      Spotify Artist Search
-    </StyledHeader>
-  );
-}
+const StyledHeader = styled.div `
+  min-height: 80px;
+  font-size: 40px;
+  font-weight: 900;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  background-color: #191414;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
 
-const StyledHeader = styled.header `
-  height: 6vh;
+const HeaderText = styled.div `
+  color: white;
+  margin: 0 20px 0 0;
 `
+
+
+const ArtistSearchApp = styled.div `
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ACE5C0;
+`;

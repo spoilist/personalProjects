@@ -53,6 +53,7 @@ const StyledCard = styled.div `
   margin-bottom: 20px;
   border: 2px solid grey;
   justify-content: space-between;
+  background-color: white;
 `
 
 const ResizedImage = styled.div `
@@ -76,7 +77,7 @@ const StyledAlbumDetails = styled.div `
 `;
 
 const StyledAlbumName = styled.p `
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 0;
 `;
 

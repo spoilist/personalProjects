@@ -152,7 +152,7 @@ const StyledList = styled.div `
 `;
 
 const Header = styled.div `
-  margin: 40px 40px;
+  margin: 40px 65px;
 `;
 
 const ArtistName = styled.div `
