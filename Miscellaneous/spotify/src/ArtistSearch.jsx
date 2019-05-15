@@ -70,13 +70,9 @@ class ArtistSearch extends React.Component {
       <SearchPage>
         <SearchBarContainer isSearching={!!this.state.searchedName}>
           <SearchBarText>Search for an artist:</SearchBarText>
-          <StyledSearchBar type="text" placeholder="Artist name" value={this.state.searchedName} onChange={this.handleChange} />
+          <StyledSearchBar type="search" placeholder="Artist name" value={this.state.searchedName} onChange={this.handleChange} />
         </SearchBarContainer>
-        {this.state.retrievedArtists ? (
-          <ArtistsList artistsToDisplay={this.state.retrievedArtists} />
-        ) : (
-          null
-        )}
+        {this.state.retrievedArtists && <ArtistsList artistsToDisplay={this.state.retrievedArtists} />}
       </SearchPage>
     );
   }
@@ -86,7 +82,6 @@ export default withRouter(ArtistSearch);
 
 const SearchPage = styled.div `
   flex: 1;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,11 +102,20 @@ const SearchBarContainer = styled.div `
 `;
 
 const StyledSearchBar = styled.input `
-  height: 40px;
   width: 400px;
-  font-size: 24px;
-`;
+  font-size: 28px;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  border: 3px solid #1DB954;
+  color: #16873E;
+  outline: none;
+  appearance: none;
+  padding: 8px;
 
-const Container = styled.div `
-  margin-bottom: 100px;
-`
+  ::placeholder {
+    color: #6FD292;
+  }
+
+  ::-webkit-search-cancel-button {
+    margin-right: 8px;
+  }
+`;

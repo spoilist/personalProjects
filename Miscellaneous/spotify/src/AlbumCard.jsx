@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 
 class AlbumCard extends React.Component {
-
   getArtistsNames() {
     const artistsNames = this.props.album.artists.map( artist => artist.name).join(", ");
     
@@ -12,7 +11,6 @@ class AlbumCard extends React.Component {
 
   render() {
     const {album} = this.props;
-    console.log(album);
     
     return (
 
@@ -54,6 +52,7 @@ const StyledCard = styled.div `
   border: 2px solid grey;
   justify-content: space-between;
   background-color: white;
+
 `
 
 const ResizedImage = styled.div `
@@ -111,4 +110,8 @@ const Preview = styled.div `
   color: white;
   text-align: center;
   padding: 8px 0;
+
+  :hover {
+    opacity: 0.8;
+  }
 `;

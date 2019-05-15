@@ -1,7 +1,6 @@
 import React from "react";
-// import logo from './logo.svg';
 import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import ArtistSearch from "./ArtistSearch";
 import AlbumsList from "./AlbumsList";
 import Login from "./Login";
@@ -19,11 +18,6 @@ class App extends React.Component {
     this.setAuthToken = this.setAuthToken.bind(this);
   }
 
-  /*componentDidMount() {
-    const accessToken = checkUrlForAccessToken();
-    accessToken ? this.setState({loggedIn: true, accessToken: accessToken}) : this.setState({loggedIn: false, accessToken: null});
-  }*/
-
   setAuthToken(authToken) {
     this.setState({ authToken });
   }
@@ -35,7 +29,9 @@ class App extends React.Component {
       <Router>
         <ArtistSearchApp>
           <StyledHeader>
-            <HeaderText>Spotify Artist Search</HeaderText>
+            <StyledLink to="/">
+              <HeaderText>Spotify Artist Search</HeaderText>
+            </StyledLink>
           </StyledHeader>
           <Auth onGetAuthToken={this.setAuthToken} />
           <Route exact path="/" component={Login} />
@@ -67,6 +63,10 @@ const StyledHeader = styled.div`
   justify-content: flex-end;
   align-items: center;
 `;
+
+const StyledLink = styled(Link) `
+  text-decoration: none;
+`
 
 const HeaderText = styled.div`
   color: white;

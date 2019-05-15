@@ -74,8 +74,15 @@ const StyledCard = styled.div`
   margin-right: 30px;
   margin-bottom: 20px;
   border-style: solid;
+  border-color: black;
   position: relative;
   background-color: white;
+
+  :hover {
+    opacity: 0.7;
+    border-color: white;
+    cursor: pointer;
+  }
 `;
 
 const ResizedImage = styled.div`

@@ -5,7 +5,7 @@ import styled from "styled-components";
 class Login extends React.Component {
   render() {
     return (
-      <StyledLogin className="loginSpotify">
+      <StyledLogin>
         <StyledButton href={utilFunctions.redirectUrlToSpotifyLogin()}>
           Login to Spotify
         </StyledButton>
@@ -36,4 +36,11 @@ const StyledButton = styled.a `
   font-family: "Helvetica Neue", "Arial", sans-serif;
   padding: 20px;
   margin: 100px 0 200px 0;
-`
+
+  filter: blur(0);
+	transition: .3s ease-in-out;
+
+  :hover {
+  filter: blur(3px);
+  }
+`;

@@ -114,18 +114,6 @@ class AlbumsList extends React.Component {
       });
   }
 
-  displayAlbums() {
-    const retrievedAlbums = this.state.retrievedAlbums;
-    if (retrievedAlbums) {
-      return retrievedAlbums.map(album => {
-        return <AlbumCard key={album.id} album={album} />;
-      });
-    } else {
-      console.log("NULL: " + this.state.retrievedAlbums);
-      return null;
-    }
-  }
-
   render() {
     return (
       <div>
@@ -135,7 +123,15 @@ class AlbumsList extends React.Component {
         </Header>
 
         <StyledList>
-          {this.displayAlbums()}
+          {
+            this.state.retrievedAlbums ? (
+              this.state.retrievedAlbums.map(album => {
+                return <AlbumCard key={album.id} album={album} />
+              })
+            ) : (
+              null
+            )
+          }
         </StyledList>
       </div>
     );
