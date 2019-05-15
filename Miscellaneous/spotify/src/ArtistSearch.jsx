@@ -68,14 +68,14 @@ class ArtistSearch extends React.Component {
   render() {
     return (
       <SearchPage>
-        <SearchBarContainer>
+        <SearchBarContainer isSearching={!!this.state.searchedName}>
           <SearchBarText>Search for an artist:</SearchBarText>
           <StyledSearchBar type="text" placeholder="Artist name" value={this.state.searchedName} onChange={this.handleChange} />
         </SearchBarContainer>
         {this.state.retrievedArtists ? (
           <ArtistsList artistsToDisplay={this.state.retrievedArtists} />
         ) : (
-          <Container />
+          null
         )}
       </SearchPage>
     );
@@ -103,7 +103,7 @@ const SearchBarText = styled.div `
 
 const SearchBarContainer = styled.div `
   padding: 30px 0;
-  margin: 0 0 80px 0;
+  margin-bottom: ${(props) => props.isSearching ? 80 : 0}px;
 `;
 
 const StyledSearchBar = styled.input `
