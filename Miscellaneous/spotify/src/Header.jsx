@@ -19,7 +19,7 @@ class Header extends React.Component {
 
 export default Header;
 
-const StyledHeader = styled.div `
+const StyledHeader = styled.div`
   height: 80px;
   font-size: 40px;
   font-weight: 900;
@@ -29,20 +29,20 @@ const StyledHeader = styled.div `
   justify-content: space-around;
   align-items: center;
 
-  @media (max-width: 900px) { 
+  @media (max-width: 900px) {
     height: 70px;
   }
-  @media (max-width: 700px) { 
+  @media (max-width: 700px) {
     height: 60px;
   }
 `;
 
-const StyledLink = styled(Link) `
+const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex;
 `;
 
-const StyledIcon = styled.img `
+const StyledIcon = styled.img`
   height: 50px;
   margin-left: 20px;
 `;
@@ -52,4 +52,3 @@ const HeaderText = styled.div`
   margin: 0 20px 0 0;
   font-size: 30px;
 `;
-

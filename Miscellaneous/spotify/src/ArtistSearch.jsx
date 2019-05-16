@@ -22,7 +22,7 @@ class ArtistSearch extends React.Component {
         this.state.searchedName,
         this.props.authToken,
         this.props.history
-      ).then((response) =>
+      ).then(response =>
         this.setState({ retrievedArtists: response.data.artists.items })
       )
     );

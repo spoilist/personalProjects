@@ -20,7 +20,7 @@ class AlbumsList extends React.Component {
       this.props.authToken,
       this.props.history
     ).then(response => {
-      this.setState({ retrievedAlbums: response.data.items })
+      this.setState({ retrievedAlbums: response.data.items });
     });
 
     getArtistName(
@@ -56,7 +56,6 @@ export default withRouter(AlbumsList);
 
 const StyledList = styled.div`
   display: flex;
-
   flex-flow: row wrap;
   justify-content: space-evenly;
 `;

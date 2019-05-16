@@ -1,6 +1,6 @@
-import React from 'react';
-import { checkUrlForAccessToken } from './util';
-import {withRouter} from 'react-router-dom';
+import React from "react";
+import { checkUrlForAccessToken } from "./util";
+import { withRouter } from "react-router-dom";
 
 class Auth extends React.Component {
   componentDidMount() {

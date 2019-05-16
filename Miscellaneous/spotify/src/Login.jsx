@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import * as utilFunctions from "./util";
 import styled from "styled-components";
 
@@ -16,8 +16,8 @@ class Login extends React.Component {
 
 export default Login;
 
-const StyledLogin = styled.div `
-  background-color: #EFFAF3;
+const StyledLogin = styled.div`
+  background-color: #effaf3;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@ const StyledLogin = styled.div `
   justify-content: center;
 `;
 
-const StyledButton = styled.a `
+const StyledButton = styled.a`
   /* display: inline-block;
   text-decoration: none;
   border: 3px solid #F97D11;
