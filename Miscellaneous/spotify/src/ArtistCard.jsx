@@ -1,7 +1,7 @@
 import React from "react";
-import StarRatings from "react-star-ratings";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
+import { MdStar, MdStarBorder } from "react-icons/md";
 
 class ArtistCard extends React.Component {
   constructor(props) {
@@ -40,6 +40,7 @@ class ArtistCard extends React.Component {
 
   render() {
     const { artist } = this.props;
+    const starRatings = [1, 2, 3, 4, 5];
 
     return (
       <StyledCard onClick={() => this.searchAlbums(artist.id)}>
@@ -48,20 +49,25 @@ class ArtistCard extends React.Component {
         ) : (
           <ResizedImage src="https://britz.mcmaster.ca/images/nouserimage.gif/image" />
         )}
-        <StyledArtistDetails>
-          <StyledArtistName>{artist.name}</StyledArtistName>
-          <StyledNumberFollowers>
-            {this.formatFollowersNumber()} followers
-          </StyledNumberFollowers>
-        </StyledArtistDetails>
-        <StyledStarRatings>
-          <StarRatings
-            rating={this.convertPopularity()}
-            numberOfStars={5}
-            starDimension="30px"
-            starSpacing="2px"
-          />
-        </StyledStarRatings>
+        <ArtistDesc>
+          <StyledArtistDetails>
+            <StyledArtistName>{artist.name}</StyledArtistName>
+            <StyledNumberFollowers>
+              {this.formatFollowersNumber()} followers
+            </StyledNumberFollowers>
+          </StyledArtistDetails>
+          <StyledStarRatings>
+            <StarRatings>
+              {starRatings.map((numberOfStar) => {
+                return (numberOfStar <= this.convertPopularity()) ? (
+                  <FullStar size="30px" key={numberOfStar}/>
+                ) : (
+                  <EmptyStar size="30px" key={numberOfStar}/>
+                )
+              })}
+            </StarRatings>
+          </StyledStarRatings>
+        </ArtistDesc>
       </StyledCard>
     );
   }
@@ -70,14 +76,15 @@ class ArtistCard extends React.Component {
 export default withRouter(ArtistCard);
 
 const StyledCard = styled.div`
-  width: 280px;
+  display: flex;
+  flex-direction: column;
   height: 450px;
+  width: 280px;
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 20px;
-  border-style: solid;
-  border-color: black;
-  position: relative;
+  border: 2px solid grey;
+  justify-content: space-between;
   background-color: white;
 
   :hover {
@@ -94,8 +101,19 @@ const ResizedImage = styled.div`
   background-size: cover;
 `;
 
+const ArtistDesc = styled.div `
+  flex: 1 1 auto;
+  margin: 0 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const StyledArtistDetails = styled.div``;
+
 const StyledArtistName = styled.p`
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 0;
 `;
 
@@ -105,12 +123,21 @@ const StyledNumberFollowers = styled.p`
   line-height: 5px;
 `;
 
-const StyledArtistDetails = styled.div`
-  margin-left: 20px;
+const StarRatings = styled.div `
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
 `;
 
+const FullStar = styled(MdStar) `
+  color: orange;
+`;
+
+const EmptyStar = styled(MdStarBorder) `
+  color: grey;
+`
+
 const StyledStarRatings = styled.div`
-  margin-left: 10px;
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  margin-bottom: 0;
 `;
