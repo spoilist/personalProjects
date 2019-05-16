@@ -30,7 +30,8 @@ class App extends React.Component {
         <ArtistSearchApp>
           <StyledHeader>
             <StyledLink to="/">
-              <HeaderText>Spotify Artist Search</HeaderText>
+              <StyledIcon src="/Spotify_LOGO_RGB_White.png" alt="Icon"/>
+              <HeaderText>Artist Search</HeaderText>
             </StyledLink>
           </StyledHeader>
           <Auth onGetAuthToken={this.setAuthToken} />
@@ -54,23 +55,41 @@ class App extends React.Component {
 export default App;
 
 const StyledHeader = styled.div`
-  min-height: 80px;
+  height: 80px;
   font-size: 40px;
   font-weight: 900;
   font-family: "Helvetica Neue", "Arial", sans-serif;
   background-color: #191414;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+
+  @media (max-width: 900px) { 
+    height: 70px;
+  }
+  @media (max-width: 700px) { 
+    height: 50px;
+  }
+  @media (max-width: 400px) { 
+    height: 30px;
+  }
 `;
 
 const StyledLink = styled(Link) `
   text-decoration: none;
-`
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const StyledIcon = styled.img `
+  height: 50px;
+  margin-left: 20px;
+`;
 
 const HeaderText = styled.div`
   color: white;
   margin: 0 20px 0 0;
+  font-size: 30px;
 `;
 
 const ArtistSearchApp = styled.div`
@@ -78,4 +97,8 @@ const ArtistSearchApp = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #ace5c0;
+
+  @media (min-width: 450px) {
+    min-width: 450px;
+  }
 `;

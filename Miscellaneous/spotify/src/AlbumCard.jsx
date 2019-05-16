@@ -31,7 +31,7 @@ class AlbumCard extends React.Component {
           </StyledAlbumDescription>
         </AlbumDesc>
         <Preview>
-          <StyledPreviewButton href={this.props.album.external_urls.spotify}>Preview on Spotify
+          <StyledPreviewButton href={this.props.album.external_urls.spotify} target="_blank">Preview on Spotify
           </StyledPreviewButton>
         </Preview>
       </StyledCard>
