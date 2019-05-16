@@ -63,7 +63,7 @@ const StyledButton = styled.a `
   }
   /* :focus {
     color: white;
-  } */ */
+  } */
 
 
   letter-spacing:2px;

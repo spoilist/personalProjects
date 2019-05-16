@@ -7,16 +7,14 @@ import Login from "./Login";
 import Auth from "./Auth";
 import styled from "styled-components";
 
-
+const AuthContext = React.createContext(null);
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       authToken: null
     };
-
     this.setAuthToken = this.setAuthToken.bind(this);
   }
 
@@ -25,30 +23,37 @@ class App extends React.Component {
   }
 
   render() {
-    const { authToken } = this.state;
-
     return (
-      <Router>
-        <Auth onGetAuthToken={this.setAuthToken} />
-        <ArtistSearchApp>
-          {this.state.authToken ? (
-            <Header />
-          ) : (
-            <div></div>
-          )}
-          <Route exact path="/" component={Login} />
-          <Route
-            path="/search"
-            render={() => <ArtistSearch authToken={authToken} />}
-          />
-          <Route
-            path="/albums/:artistId"
-            render={({ match }) => (
-              <AlbumsList authToken={authToken} match={match.params.artistId} />
-            )}
-          />
-        </ArtistSearchApp>
-      </Router>
+      <AuthContext.Provider value={this.state.authToken}>
+        <Router>
+          <Auth onGetAuthToken={this.setAuthToken} />
+          <ArtistSearchApp>
+            {this.state.authToken ? <Header /> : <div />}
+            <Route exact path="/" component={Login} />
+            <AuthContext.Consumer>
+              {value => (
+                <Route
+                  path="/search"
+                  render={() => <ArtistSearch authToken={value} />}
+                />
+              )}
+            </AuthContext.Consumer>
+            <AuthContext.Consumer>
+              {value => (
+                <Route
+                  path="/albums/:artistId"
+                  render={({ match }) => (
+                    <AlbumsList
+                      match={match.params.artistId}
+                      authToken={value}
+                    />
+                  )}
+                />
+              )}
+            </AuthContext.Consumer>
+          </ArtistSearchApp>
+        </Router>
+      </AuthContext.Provider>
     );
   }
 }
