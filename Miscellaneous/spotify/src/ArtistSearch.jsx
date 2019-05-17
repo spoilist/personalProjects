@@ -74,7 +74,7 @@ const SearchBarContainer = styled.div`
 const StyledSearchBar = styled.input`
   width: 400px;
   font-size: 28px;
-  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-family: "SpotifyFontRegular";
   border: 3px solid #1db954;
   color: #16873e;
   outline: none;

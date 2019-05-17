@@ -12,8 +12,29 @@ export function redirectUrlToSpotifyLogin() {
 }
 
 export function checkUrlForAccessToken() {
-  const query = window.location.hash.replace("#", "?");
-  const params = new URLSearchParams(query);
+  return new URLSearchParams(window.location.hash.replace("#", "?")).get(
+    "access_token"
+  );
+}
 
-  return params.get("access_token");
+export function convertPopularity(popularity) {
+  if (popularity > 80) {
+    return 5;
+  } else if (popularity > 60) {
+    return 4;
+  } else if (popularity > 40) {
+    return 3;
+  } else if (popularity > 20) {
+    return 2;
+  } else {
+    return 1;
+  }
+}
+
+export function formatFollowersNumber(numberOfFollowers) {
+  return !numberOfFollowers ? null : numberOfFollowers.toLocaleString();
+}
+
+export function getArtistsNames(artists) {
+  return artists.map(artist => artist.name).join(", ");
 }

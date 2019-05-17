@@ -1,7 +1,8 @@
 import React from "react";
 import ArtistCard from "./ArtistCard";
 import styled from "styled-components";
-
+import * as BasicCardsListStyles from "./styles/BasicCardsList";
+ 
 class ArtistsList extends React.Component {
   render() {
     return (
@@ -18,8 +19,5 @@ class ArtistsList extends React.Component {
 
 export default ArtistsList;
 
-const StyledList = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
+const StyledList = styled(BasicCardsListStyles.BasicCardsList) `
 `;

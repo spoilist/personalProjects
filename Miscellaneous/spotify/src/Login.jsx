@@ -7,7 +7,7 @@ class Login extends React.Component {
     return (
       <StyledLogin>
         <StyledButton href={utilFunctions.redirectUrlToSpotifyLogin()}>
-          Login to Spotify
+          Login to the App
         </StyledButton>
       </StyledLogin>
     );

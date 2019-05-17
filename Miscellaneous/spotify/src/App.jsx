@@ -63,7 +63,7 @@ const ArtistSearchApp = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #ace5c0;
+  background-color: #effaf3;
   min-width: 400px;
   width: auto !important;
   width: 400px;

@@ -3,6 +3,7 @@ import AlbumCard from "./AlbumCard";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import { getArtistName, getAlbumsList } from "./services/spotify-api";
+import * as BasicCardsListStyles from "./styles/BasicCardsList";
 
 class AlbumsList extends React.Component {
   constructor(props) {
@@ -36,8 +37,8 @@ class AlbumsList extends React.Component {
     return (
       <div>
         <Header>
-          <ArtistName>{this.state.artistName}</ArtistName>
-          <Albums>Albums</Albums>
+          <Title>{this.state.artistName}</Title>
+          <Subtitle>Albums</Subtitle>
         </Header>
 
         <StyledList>
@@ -54,21 +55,18 @@ class AlbumsList extends React.Component {
 
 export default withRouter(AlbumsList);
 
-const StyledList = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
+const StyledList = styled(BasicCardsListStyles.BasicCardsList) `
 `;
 
 const Header = styled.div`
   margin: 40px 65px;
 `;
 
-const ArtistName = styled.div`
+const Title = styled.div`
   font-size: 40px;
 `;
 
-const Albums = styled.div`
+const Subtitle = styled.div`
   font-size: 24px;
   color: grey;
 `;

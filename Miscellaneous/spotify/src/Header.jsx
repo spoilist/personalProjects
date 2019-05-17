@@ -7,7 +7,10 @@ class Header extends React.Component {
     return (
       <StyledHeader>
         <StyledLink to="/search">
-          <StyledIcon src="/Spotify_LOGO_RGB_White.png" alt="Icon" />
+          <IconContainer>
+            <StyledIconGreen src="/Spotify_LOGO_RGB_Green.png" alt="Icon" />
+            <StyledIconWhite src="/Spotify_LOGO_RGB_White.png" alt="Icon" />
+          </IconContainer>
         </StyledLink>
         <StyledLink to="/search">
           <HeaderText>Artist Search</HeaderText>
@@ -42,9 +45,30 @@ const StyledLink = styled(Link)`
   display: flex;
 `;
 
-const StyledIcon = styled.img`
-  height: 50px;
+const IconContainer = styled.div`
   margin-left: 20px;
+  position: relative;
+`;
+
+const StyledIconWhite = styled.img `
+  height: 50px;
+  position: absolute;
+  top:0;
+  left:0;
+  opacity: 1;
+
+  ${IconContainer}:hover & {
+    opacity: 0;
+  }
+`;
+
+const StyledIconGreen = styled.img `
+  height: 50px;
+  opacity: 0;
+
+  ${IconContainer}:hover & {
+    opacity: 1;
+  }
 `;
 
 const HeaderText = styled.div`
@@ -52,4 +76,8 @@ const HeaderText = styled.div`
   margin: 0 20px 0 0;
   font-size: 35px;
   font-family: "spotifyFontBold";
+
+  :hover {
+    color: #1db954;
+  }
 `;
