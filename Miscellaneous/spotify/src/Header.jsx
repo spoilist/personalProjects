@@ -48,6 +48,7 @@ const StyledLink = styled(Link)`
 const IconContainer = styled.div`
   margin-left: 20px;
   position: relative;
+  display: flex;
 `;
 
 const StyledIconWhite = styled.img `

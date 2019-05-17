@@ -17,7 +17,7 @@ class AlbumsList extends React.Component {
 
   componentDidMount() {
     getAlbumsList(
-      this.props.match.params.artistId,
+      this.props.artistId,
       this.props.authToken,
       this.props.history
     ).then(response => {
@@ -25,7 +25,7 @@ class AlbumsList extends React.Component {
     });
 
     getArtistName(
-      this.props.match.params.artistId,
+      this.props.artistId,
       this.props.authToken,
       this.props.history
     ).then(response => {
@@ -34,6 +34,7 @@ class AlbumsList extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <Header>

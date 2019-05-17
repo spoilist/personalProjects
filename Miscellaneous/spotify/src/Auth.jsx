@@ -2,19 +2,34 @@ import React from "react";
 import { checkUrlForAccessToken } from "./util";
 import { withRouter } from "react-router-dom";
 
-class Auth extends React.Component {
+const AuthContext = React.createContext(null);
+
+class AuthProvider extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authToken: null
+    };
+  }
+
   componentDidMount() {
     const authToken = checkUrlForAccessToken();
     if (authToken) {
-      this.props.onGetAuthToken(authToken);
+      this.setState({ authToken: authToken });
     } else {
       this.props.history.push("/");
     }
   }
 
   render() {
-    return null;
+    return (
+      <AuthContext.Provider value={this.state.authToken}>
+        {this.props.children}
+      </AuthContext.Provider>
+    );
   }
 }
 
-export default withRouter(Auth);
+export default withRouter(AuthProvider);
+export { AuthContext };

@@ -29,6 +29,7 @@ class ArtistSearch extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <SearchPage>
         <SearchBarContainer isSearching={!!this.state.searchedName}>
