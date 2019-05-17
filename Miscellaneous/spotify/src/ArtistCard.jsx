@@ -25,7 +25,7 @@ class ArtistCard extends React.Component {
         {<ArtistImage src={artist.images[0] ? artist.images[0].url : null} />}
         <ArtistBody>
           <ArtistHeader>
-            <ArtistTitle>{formatString(artist.name)}</ArtistTitle>
+            <ArtistTitle title={artist.name}>{formatString(artist.name, 60)}</ArtistTitle>
             <ArtistSubtitle>
               {formatFollowersNumber(this.props.artist.followers.total)}{" "}
               {this.props.artist.followers.total === 1

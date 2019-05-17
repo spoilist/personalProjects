@@ -13,9 +13,9 @@ class AlbumCard extends React.Component {
         {<AlbumImage src={album.images[0] ? album.images[0].url : null} />}
         <AlbumBody>
           <AlbumHeader>
-            <AlbumTitle>{formatString(album.name)}</AlbumTitle>
-            <AlbumSubtitle>
-              {formatString(getArtistsNames(this.props.album.artists))}
+            <AlbumTitle title={album.name}>{formatString(album.name, 45)}</AlbumTitle>
+            <AlbumSubtitle title={getArtistsNames(album.artists)}>
+              {formatString(getArtistsNames(album.artists), 60)}
             </AlbumSubtitle>
           </AlbumHeader>
           <AlbumFooter>

@@ -39,6 +39,6 @@ export function getArtistsNames(artists) {
   return artists.map(artist => artist.name).join(", ");
 }
 
-export function formatString(string) {
-  return (string.length > 60) ? `${string.slice(0, 60)}...` : string;
+export function formatString(string, desiredLength) {
+  return (string.length > desiredLength) ? `${string.slice(0, desiredLength)}...` : string;
 }
