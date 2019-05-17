@@ -32,7 +32,7 @@ export function convertPopularity(popularity) {
 }
 
 export function formatFollowersNumber(numberOfFollowers) {
-  return !numberOfFollowers ? null : numberOfFollowers.toLocaleString();
+  return !numberOfFollowers ? 0 : numberOfFollowers.toLocaleString();
 }
 
 export function getArtistsNames(artists) {

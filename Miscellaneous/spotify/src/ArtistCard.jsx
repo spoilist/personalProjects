@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import { MdStar, MdStarBorder } from "react-icons/md";
-import { convertPopularity, formatFollowersNumber} from "./util";
+import { convertPopularity, formatFollowersNumber } from "./util";
 import * as BasicCardStyles from "./styles/BasicCard";
 
 class ArtistCard extends React.Component {
@@ -22,13 +22,15 @@ class ArtistCard extends React.Component {
 
     return (
       <Artist onClick={() => this.searchAlbums(artist.id)}>
-        {<ArtistImage src={(artist.images[0]) ? artist.images[0].url : null} />}
+        {<ArtistImage src={artist.images[0] ? artist.images[0].url : null} />}
         <ArtistBody>
           <ArtistHeader>
             <ArtistTitle>{artist.name}</ArtistTitle>
             <ArtistSubtitle>
               {formatFollowersNumber(this.props.artist.followers.total)}{" "}
-              followers
+              {this.props.artist.followers.total === 1
+                ? "follower"
+                : "followers"}
             </ArtistSubtitle>
           </ArtistHeader>
           <ArtistFooter>
@@ -51,7 +53,7 @@ class ArtistCard extends React.Component {
 
 export default withRouter(ArtistCard);
 
-const Artist = styled(BasicCardStyles.BasicCard) `
+const Artist = styled(BasicCardStyles.BasicCard)`
   :hover {
     opacity: 0.7;
     border-color: white;
@@ -59,24 +61,21 @@ const Artist = styled(BasicCardStyles.BasicCard) `
   }
 `;
 
-const ArtistImage = styled(BasicCardStyles.BasicImage) `
+const ArtistImage = styled(BasicCardStyles.BasicImage)`
   ${Artist}:hover & {
     border-bottom: white;
   }
 `;
 
-const ArtistBody = styled(BasicCardStyles.BasicCardBody) `
-`;
+const ArtistBody = styled(BasicCardStyles.BasicCardBody)``;
 
 const ArtistHeader = styled.div``;
 
-const ArtistTitle = styled(BasicCardStyles.BasicCardTitle) `
-`;
+const ArtistTitle = styled(BasicCardStyles.BasicCardTitle)``;
 
-const ArtistSubtitle = styled(BasicCardStyles.BasicCardSubtitle) `
-`;
+const ArtistSubtitle = styled(BasicCardStyles.BasicCardSubtitle)``;
 
-const ArtistFooter = styled(BasicCardStyles.BasicCardFooter) `
+const ArtistFooter = styled(BasicCardStyles.BasicCardFooter)`
   position: relative;
   margin-bottom: 0;
 `;

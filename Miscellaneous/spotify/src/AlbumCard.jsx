@@ -10,7 +10,7 @@ class AlbumCard extends React.Component {
 
     return (
       <Album>
-        {<AlbumImage src={(album.images[0]) ? album.images[0].url : null} />}
+        {<AlbumImage src={album.images[0] ? album.images[0].url : null} />}
         <AlbumBody>
           <AlbumHeader>
             <AlbumTitle>{album.name}</AlbumTitle>
@@ -20,14 +20,14 @@ class AlbumCard extends React.Component {
           </AlbumHeader>
           <AlbumFooter>
             <StyledAlbumInfo>{album.release_date}</StyledAlbumInfo>
-            <StyledAlbumInfo>{album.total_tracks} tracks</StyledAlbumInfo>
+            <StyledAlbumInfo>
+              {album.total_tracks}{" "}
+              {album.total_tracks === 1 ? "track" : "tracks"}
+            </StyledAlbumInfo>
           </AlbumFooter>
         </AlbumBody>
         <Preview>
-          <PreviewButton
-            href={album.external_urls.spotify}
-            target="_blank"
-          >
+          <PreviewButton href={album.external_urls.spotify} target="_blank">
             Preview on Spotify
           </PreviewButton>
         </Preview>
@@ -38,33 +38,27 @@ class AlbumCard extends React.Component {
 
 export default withRouter(AlbumCard);
 
-const Album = styled(BasicCardStyles.BasicCard) `
+const Album = styled(BasicCardStyles.BasicCard)`
   height: 480px;
 `;
 
-const AlbumImage = styled(BasicCardStyles.BasicImage) `
-`;
+const AlbumImage = styled(BasicCardStyles.BasicImage)``;
 
-const AlbumBody = styled(BasicCardStyles.BasicCardBody) `
-`;
+const AlbumBody = styled(BasicCardStyles.BasicCardBody)``;
 
-const AlbumHeader = styled(BasicCardStyles.BasicCardHeader) `
-`;
+const AlbumHeader = styled(BasicCardStyles.BasicCardHeader)``;
 
-const AlbumTitle = styled(BasicCardStyles.BasicCardTitle) `
-`;
+const AlbumTitle = styled(BasicCardStyles.BasicCardTitle)``;
 
-const AlbumSubtitle = styled(BasicCardStyles.BasicCardSubtitle) `
-`;
+const AlbumSubtitle = styled(BasicCardStyles.BasicCardSubtitle)``;
 
-const StyledAlbumInfo = styled(BasicCardStyles.BasicCardSubtitle) `
+const StyledAlbumInfo = styled(BasicCardStyles.BasicCardSubtitle)`
   margin-top: 0;
 `;
 
-const AlbumFooter = styled(BasicCardStyles.BasicCardFooter) `
-`;
+const AlbumFooter = styled(BasicCardStyles.BasicCardFooter)``;
 
-const PreviewButton = styled.a `
+const PreviewButton = styled.a`
   color: white;
   display: block;
   text-decoration: none;
