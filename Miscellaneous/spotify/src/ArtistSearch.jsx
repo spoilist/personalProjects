@@ -59,10 +59,11 @@ const SearchPage = styled.div`
 `;
 
 const SearchBarText = styled.div`
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 900;
   font-family: "Helvetica Neue", "Arial", sans-serif;
   margin-bottom: 20px;
+  font-family: "spotifyFontBold";
 `;
 
 const SearchBarContainer = styled.div`
@@ -82,6 +83,7 @@ const StyledSearchBar = styled.input`
 
   ::placeholder {
     color: #6fd292;
+    font-family: "spotifyFontRegular";
   }
 
   ::-webkit-search-cancel-button {

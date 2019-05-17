@@ -50,5 +50,6 @@ const StyledIcon = styled.img`
 const HeaderText = styled.div`
   color: white;
   margin: 0 20px 0 0;
-  font-size: 30px;
+  font-size: 35px;
+  font-family: "spotifyFontBold";
 `;

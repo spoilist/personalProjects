@@ -64,8 +64,23 @@ const ArtistSearchApp = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #ace5c0;
-
   min-width: 400px;
   width: auto !important;
   width: 400px;
+
+  @font-face {
+    font-family: "spotifyFontBold";
+    src: url("/fonts/ProximaNovaBold.otf")
+  }
+
+  @font-face {
+    font-family: "spotifyFontThin";
+    src: url("/fonts/ProximaNovaThin.otf")
+  }
+
+  @font-face {
+    font-family: "spotifyFontRegular";
+    src: url("/fonts/ProximaNovaRegular.otf")
+  }
+
 `;
