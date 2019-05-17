@@ -38,3 +38,7 @@ export function formatFollowersNumber(numberOfFollowers) {
 export function getArtistsNames(artists) {
   return artists.map(artist => artist.name).join(", ");
 }
+
+export function formatString(string) {
+  return (string.length > 60) ? `${string.slice(0, 60)}...` : string;
+}

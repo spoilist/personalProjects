@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import { MdStar, MdStarBorder } from "react-icons/md";
-import { convertPopularity, formatFollowersNumber } from "./util";
+import { convertPopularity, formatFollowersNumber, formatString } from "./util";
 import * as BasicCardStyles from "./styles/BasicCard";
 
 class ArtistCard extends React.Component {
@@ -25,7 +25,7 @@ class ArtistCard extends React.Component {
         {<ArtistImage src={artist.images[0] ? artist.images[0].url : null} />}
         <ArtistBody>
           <ArtistHeader>
-            <ArtistTitle>{artist.name}</ArtistTitle>
+            <ArtistTitle>{formatString(artist.name)}</ArtistTitle>
             <ArtistSubtitle>
               {formatFollowersNumber(this.props.artist.followers.total)}{" "}
               {this.props.artist.followers.total === 1
@@ -71,7 +71,11 @@ const ArtistBody = styled(BasicCardStyles.BasicCardBody)``;
 
 const ArtistHeader = styled.div``;
 
-const ArtistTitle = styled(BasicCardStyles.BasicCardTitle)``;
+const ArtistTitle = styled(BasicCardStyles.BasicCardTitle)`
+  :hover {
+    text-decoration: underline;
+  }
+  `;
 
 const ArtistSubtitle = styled(BasicCardStyles.BasicCardSubtitle)``;
 

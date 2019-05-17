@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
-import { getArtistsNames } from "./util";
+import { getArtistsNames, formatString } from "./util";
 import * as BasicCardStyles from "./styles/BasicCard";
 
 class AlbumCard extends React.Component {
@@ -13,9 +13,9 @@ class AlbumCard extends React.Component {
         {<AlbumImage src={album.images[0] ? album.images[0].url : null} />}
         <AlbumBody>
           <AlbumHeader>
-            <AlbumTitle>{album.name}</AlbumTitle>
+            <AlbumTitle>{formatString(album.name)}</AlbumTitle>
             <AlbumSubtitle>
-              {getArtistsNames(this.props.album.artists)}
+              {formatString(getArtistsNames(this.props.album.artists))}
             </AlbumSubtitle>
           </AlbumHeader>
           <AlbumFooter>
