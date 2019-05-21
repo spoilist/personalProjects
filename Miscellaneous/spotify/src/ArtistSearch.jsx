@@ -1,6 +1,7 @@
 import React from "react";
 import ArtistsList from "./ArtistsList";
 import { withRouter } from "react-router-dom";
+import withAuth from "./withAuth";
 import styled from "styled-components";
 import { getArtistsList } from "./services/spotify-api";
 
@@ -49,7 +50,7 @@ class ArtistSearch extends React.Component {
   }
 }
 
-export default withRouter(ArtistSearch);
+export default withRouter(withAuth(ArtistSearch));
 
 const SearchPage = styled.div`
   flex: 1;

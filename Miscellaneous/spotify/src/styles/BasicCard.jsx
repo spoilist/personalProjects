@@ -31,9 +31,6 @@ export const BasicCardBody = styled.div `
   justify-content: space-between;
 `;
 
-export const BasicCardHeader = styled.div `
-`;
-
 export const BasicCardTitle = styled.p `
   font-size: 20px;
   margin-bottom: 0;

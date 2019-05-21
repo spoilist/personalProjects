@@ -22,17 +22,17 @@ class ArtistCard extends React.Component {
 
     return (
       <Artist onClick={() => this.searchAlbums(artist.id)}>
-        {<ArtistImage src={artist.images[0] ? artist.images[0].url : null} />}
-        <ArtistBody>
-          <ArtistHeader>
-            <ArtistTitle title={artist.name}>{formatString(artist.name, 60)}</ArtistTitle>
-            <ArtistSubtitle>
+        {<BasicCardStyles.BasicImage src={artist.images[0] ? artist.images[0].url : null} />}
+        <BasicCardStyles.BasicCardBody>
+          <div>
+            <BasicCardStyles.BasicCardTitle title={artist.name}>{formatString(artist.name, 60)}</BasicCardStyles.BasicCardTitle>
+            <BasicCardStyles.BasicCardSubtitle>
               {formatFollowersNumber(this.props.artist.followers.total)}{" "}
               {this.props.artist.followers.total === 1
                 ? "follower"
                 : "followers"}
-            </ArtistSubtitle>
-          </ArtistHeader>
+            </BasicCardStyles.BasicCardSubtitle>
+          </div>
           <ArtistFooter>
             <StarRatings>
               {starRatings.map(numberOfStar => {
@@ -45,7 +45,7 @@ class ArtistCard extends React.Component {
               })}
             </StarRatings>
           </ArtistFooter>
-        </ArtistBody>
+        </BasicCardStyles.BasicCardBody>
       </Artist>
     );
   }
@@ -59,23 +59,6 @@ const Artist = styled(BasicCardStyles.BasicCard)`
     cursor: pointer;
   }
 `;
-
-const ArtistImage = styled(BasicCardStyles.BasicImage) `
-}
-`;
-
-const ArtistBody = styled(BasicCardStyles.BasicCardBody) `
-`;
-
-const ArtistHeader = styled.div``;
-
-const ArtistTitle = styled(BasicCardStyles.BasicCardTitle)`
-  :hover {
-    text-decoration: underline;
-  }
-  `;
-
-const ArtistSubtitle = styled(BasicCardStyles.BasicCardSubtitle)``;
 
 const ArtistFooter = styled(BasicCardStyles.BasicCardFooter)`
   position: relative;

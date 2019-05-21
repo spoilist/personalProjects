@@ -1,26 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import withAuth from "./withAuth";
 
 class Header extends React.Component {
   render() {
-    return (
-      <StyledHeader>
-        <StyledLink to="/search">
-          <IconContainer>
-            <StyledIconGreen src="/Spotify_LOGO_RGB_Green.png" alt="Icon" />
-            <StyledIconWhite src="/Spotify_LOGO_RGB_White.png" alt="Icon" />
-          </IconContainer>
-        </StyledLink>
-        <StyledLink to="/search">
-          <HeaderText>Artist Search</HeaderText>
-        </StyledLink>
-      </StyledHeader>
-    );
+    return this.props.authToken ?
+      (
+        <StyledHeader>
+          <StyledLink to="/search">
+            <IconContainer>
+              <StyledIconGreen src="/Spotify_LOGO_RGB_Green.png" alt="Icon" />
+              <StyledIconWhite src="/Spotify_LOGO_RGB_White.png" alt="Icon" />
+            </IconContainer>
+          </StyledLink>
+          <StyledLink to="/search">
+            <HeaderText>Artist Search</HeaderText>
+          </StyledLink>
+        </StyledHeader>
+      ) : (
+        <div></div>
+      );
   }
 }
 
-export default Header;
+export default withAuth(Header);
 
 const StyledHeader = styled.div`
   height: 80px;

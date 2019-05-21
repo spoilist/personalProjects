@@ -10,22 +10,22 @@ class AlbumCard extends React.Component {
 
     return (
       <Album>
-        {<AlbumImage src={album.images[0] ? album.images[0].url : null} />}
-        <AlbumBody>
-          <AlbumHeader>
-            <AlbumTitle title={album.name}>{formatString(album.name, 45)}</AlbumTitle>
-            <AlbumSubtitle title={getArtistsNames(album.artists)}>
+        {<BasicCardStyles.BasicImage src={album.images[0] ? album.images[0].url : null} />}
+        <BasicCardStyles.BasicCardBody>
+          <div>
+            <BasicCardStyles.BasicCardTitle title={album.name}>{formatString(album.name, 45)}</BasicCardStyles.BasicCardTitle>
+            <BasicCardStyles.BasicCardSubtitle title={getArtistsNames(album.artists)}>
               {formatString(getArtistsNames(album.artists), 60)}
-            </AlbumSubtitle>
-          </AlbumHeader>
-          <AlbumFooter>
+            </BasicCardStyles.BasicCardSubtitle>
+          </div>
+          <BasicCardStyles.BasicCardFooter>
             <StyledAlbumInfo>{album.release_date}</StyledAlbumInfo>
             <StyledAlbumInfo>
               {album.total_tracks}{" "}
               {album.total_tracks === 1 ? "track" : "tracks"}
             </StyledAlbumInfo>
-          </AlbumFooter>
-        </AlbumBody>
+          </BasicCardStyles.BasicCardFooter>
+        </BasicCardStyles.BasicCardBody>
         <Preview>
           <PreviewButton href={album.external_urls.spotify} target="_blank">
             Preview on Spotify
@@ -42,21 +42,9 @@ const Album = styled(BasicCardStyles.BasicCard)`
   height: 480px;
 `;
 
-const AlbumImage = styled(BasicCardStyles.BasicImage)``;
-
-const AlbumBody = styled(BasicCardStyles.BasicCardBody)``;
-
-const AlbumHeader = styled(BasicCardStyles.BasicCardHeader)``;
-
-const AlbumTitle = styled(BasicCardStyles.BasicCardTitle)``;
-
-const AlbumSubtitle = styled(BasicCardStyles.BasicCardSubtitle)``;
-
 const StyledAlbumInfo = styled(BasicCardStyles.BasicCardSubtitle)`
   margin-top: 0;
 `;
-
-const AlbumFooter = styled(BasicCardStyles.BasicCardFooter)``;
 
 const PreviewButton = styled.a`
   color: white;

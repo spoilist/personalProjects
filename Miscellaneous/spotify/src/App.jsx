@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
-
 import Header from "./Header";
 import ArtistSearch from "./ArtistSearch";
 import AlbumsList from "./AlbumsList";
@@ -14,7 +13,7 @@ class App extends React.Component {
       <Router>
         <AuthProvider>
           <ArtistSearchApp>
-            {/* {this.state.authToken ? <Header /> : <div />} */}
+            <Header/>
             <Route exact path="/" component={Login} />
             <Route path="/search" render={() => <ArtistSearch />} />
             <Route

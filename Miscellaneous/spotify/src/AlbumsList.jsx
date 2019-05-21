@@ -2,6 +2,7 @@ import React from "react";
 import AlbumCard from "./AlbumCard";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
+import withAuth from "./withAuth";
 import { getArtistName, getAlbumsList } from "./services/spotify-api";
 import * as BasicCardsListStyles from "./styles/BasicCardsList";
 
@@ -42,22 +43,19 @@ class AlbumsList extends React.Component {
           <Subtitle>Albums</Subtitle>
         </Header>
 
-        <StyledList>
+        <BasicCardsListStyles.BasicCardsList>
           {this.state.retrievedAlbums
             ? this.state.retrievedAlbums.map(album => {
                 return <AlbumCard key={album.id} album={album} />;
               })
             : null}
-        </StyledList>
+        </BasicCardsListStyles.BasicCardsList>
       </div>
     );
   }
 }
 
-export default withRouter(AlbumsList);
-
-const StyledList = styled(BasicCardsListStyles.BasicCardsList) `
-`;
+export default withAuth(withRouter(AlbumsList));
 
 const Header = styled.div`
   margin: 40px 65px;
