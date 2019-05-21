@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import { MdStar, MdStarBorder } from "react-icons/md";
+
 import { convertPopularity, formatFollowersNumber, formatString } from "./util";
 import * as BasicCardStyles from "./styles/BasicCard";
+
 
 class ArtistCard extends React.Component {
   constructor(props) {

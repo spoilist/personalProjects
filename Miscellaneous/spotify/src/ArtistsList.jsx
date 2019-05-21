@@ -1,7 +1,9 @@
 import React from "react";
+
 import ArtistCard from "./ArtistCard";
 import * as BasicCardsListStyles from "./styles/BasicCardsList";
  
+
 class ArtistsList extends React.Component {
   render() {
     return (

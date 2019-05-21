@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
+
 import { getArtistsNames, formatString } from "./util";
 import * as BasicCardStyles from "./styles/BasicCard";
+
 
 class AlbumCard extends React.Component {
   render() {

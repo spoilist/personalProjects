@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
+
 import Header from "./Header";
 import ArtistSearch from "./ArtistSearch";
 import AlbumsList from "./AlbumsList";
 import Login from "./Login";
 import AuthProvider from "./Auth";
+
 
 class App extends React.Component {
   render() {

@@ -1,6 +1,8 @@
 import React from "react";
-import * as utilFunctions from "./util";
 import styled from "styled-components";
+
+import * as utilFunctions from "./util";
+
 
 class Login extends React.Component {
   render() {

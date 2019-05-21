@@ -1,9 +1,11 @@
 import React from "react";
-import ArtistsList from "./ArtistsList";
 import { withRouter } from "react-router-dom";
-import withAuth from "./withAuth";
 import styled from "styled-components";
+
+import withAuth from "./withAuth";
 import { getArtistsList } from "./services/spotify-api";
+import ArtistsList from "./ArtistsList";
+
 
 class ArtistSearch extends React.Component {
   constructor(props) {
@@ -30,7 +32,6 @@ class ArtistSearch extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <SearchPage>
         <SearchBarContainer isSearching={!!this.state.searchedName}>

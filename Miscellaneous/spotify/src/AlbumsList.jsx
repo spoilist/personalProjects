@@ -1,10 +1,12 @@
 import React from "react";
-import AlbumCard from "./AlbumCard";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
+
 import withAuth from "./withAuth";
 import { getArtistName, getAlbumsList } from "./services/spotify-api";
 import * as BasicCardsListStyles from "./styles/BasicCardsList";
+import AlbumCard from "./AlbumCard";
+
 
 class AlbumsList extends React.Component {
   constructor(props) {

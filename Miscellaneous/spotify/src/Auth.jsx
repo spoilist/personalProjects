@@ -1,6 +1,8 @@
 import React from "react";
-import { checkUrlForAccessToken } from "./util";
 import { withRouter } from "react-router-dom";
+
+import { checkUrlForAccessToken } from "./util";
+
 
 const AuthContext = React.createContext(null);
 
