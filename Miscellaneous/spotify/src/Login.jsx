@@ -8,9 +8,12 @@ class Login extends React.Component {
   render() {
     return (
       <StyledLogin>
-        <StyledButton href={utilFunctions.redirectUrlToSpotifyLogin()}>
-          Login to the App
-        </StyledButton>
+        <LoginHeader>
+          <Title>Welcome to Spotify Artist Search</Title>
+          <StyledButton href={utilFunctions.redirectUrlToSpotifyLogin()}>
+            Login to the App
+          </StyledButton>
+        </LoginHeader>
       </StyledLogin>
     );
   }
@@ -19,7 +22,7 @@ class Login extends React.Component {
 export default Login;
 
 const StyledLogin = styled.div `
-  background-color: #effaf3;
+  background-color: #EFFAF3;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -27,41 +30,54 @@ const StyledLogin = styled.div `
   justify-content: center;
 `;
 
+const LoginHeader = styled.div `
+  /* display: block; */
+  font-family: "spotifyFontBold";
+  line-height: 1.5;
+  text-align: center;
+  color: #000000;
+`;
+
+const Title = styled.h2 `
+  font-size: 40px;
+  letter-spacing: -0.015em;
+
+`
+
 const StyledButton = styled.a `
   display: inline-block;
   text-decoration: none;
-  border: 3px solid #F97D11;
-  border-radius: 3px;
-  box-shadow: 11px 18px 24px -9px rgba(77,72,77,1);
-  color: #F97D11;
-  font-size: 48px;
-  font-weight: 900;
-  font-family: "Helvetica Neue", "Arial", sans-serif;
-  padding: 20px;
-  margin: 100px 0 200px 0;
-  transition: .3s all ease;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
 
-  &:before {
-    transition: .5s all ease;
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    opacity: 0;
-    content: "";
-    background-color: #EFFAF3;
-    z-index: -2;
-  }
+  color: #F97D11;
+  box-shadow: 0 0 0 2px #F97D11 inset;
+  background-color: transparent;
+
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  padding: 16px 48px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: .3s;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+
+  margin: 100px 0 200px 0;
 
   &:hover {
-    color: black;
-    &:before {
-      transition: .5s all ease;
-      left: 0;
-      right: 0;
-      opacity: 1;
-    }
+    color: #EFFAF3;
+    background-color: #F97D11;
   }
+  &:active {
+    color: #FFFFFF;
+    background-color: #5B2E07;
+    outline: 0;
+    box-shadow: 0 0 0 2px #5B2E07 inset;
+  }
+
 
 `;

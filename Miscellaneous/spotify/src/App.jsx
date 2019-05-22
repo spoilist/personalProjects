@@ -24,7 +24,6 @@ class App extends React.Component {
                 <AlbumsList artistId={match.params.artistId} />
               )}
             />
-            )}
           </ArtistSearchApp>
         </AuthProvider>
       </Router>

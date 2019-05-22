@@ -64,7 +64,6 @@ const SearchPage = styled.div`
 const SearchBarText = styled.div`
   font-size: 36px;
   font-weight: 900;
-  font-family: "Helvetica Neue", "Arial", sans-serif;
   margin-bottom: 20px;
   font-family: "spotifyFontBold";
 `;
