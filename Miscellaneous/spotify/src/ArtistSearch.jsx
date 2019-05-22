@@ -6,7 +6,6 @@ import withAuth from "./withAuth";
 import { getArtistsList } from "./services/spotify-api";
 import ArtistsList from "./ArtistsList";
 
-
 class ArtistSearch extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +17,8 @@ class ArtistSearch extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
   }
+
+ 
 
   handleChange(event) {
     this.setState({ searchedName: event.target.value }, () =>
@@ -50,7 +51,6 @@ class ArtistSearch extends React.Component {
     );
   }
 }
-
 export default withRouter(withAuth(ArtistSearch));
 
 const SearchPage = styled.div`

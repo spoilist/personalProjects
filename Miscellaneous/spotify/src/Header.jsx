@@ -4,25 +4,23 @@ import styled from "styled-components";
 
 import withAuth from "./withAuth";
 
-
 class Header extends React.Component {
   render() {
-    return this.props.authToken ?
-      (
-        <StyledHeader>
-          <StyledLink to="/search">
-            <IconContainer>
-              <StyledIconGreen src="/Spotify_LOGO_RGB_Green.png" alt="Icon" />
-              <StyledIconWhite src="/Spotify_LOGO_RGB_White.png" alt="Icon" />
-            </IconContainer>
-          </StyledLink>
-          <StyledLink to="/search">
-            <HeaderText>Artist Search</HeaderText>
-          </StyledLink>
-        </StyledHeader>
-      ) : (
-        <div></div>
-      );
+    return this.props.authToken ? (
+      <StyledHeader>
+        <StyledLink to="/search">
+          <IconContainer>
+            <StyledIconGreen src="/Spotify_LOGO_RGB_Green.png" alt="Icon" />
+            <StyledIconWhite src="/Spotify_LOGO_RGB_White.png" alt="Icon" />
+          </IconContainer>
+        </StyledLink>
+        <StyledLink to="/search">
+          <HeaderText>Artist Search</HeaderText>
+        </StyledLink>
+      </StyledHeader>
+    ) : (
+      <div />
+    );
   }
 }
 
@@ -57,11 +55,11 @@ const IconContainer = styled.div`
   display: flex;
 `;
 
-const StyledIconWhite = styled.img `
+const StyledIconWhite = styled.img`
   height: 50px;
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   opacity: 1;
 
   ${IconContainer}:hover & {
@@ -69,7 +67,7 @@ const StyledIconWhite = styled.img `
   }
 `;
 
-const StyledIconGreen = styled.img `
+const StyledIconGreen = styled.img`
   height: 50px;
   opacity: 0;
 

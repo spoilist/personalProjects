@@ -8,14 +8,13 @@ import AlbumsList from "./AlbumsList";
 import Login from "./Login";
 import AuthProvider from "./Auth";
 
-
 class App extends React.Component {
   render() {
     return (
       <Router>
         <AuthProvider>
           <ArtistSearchApp>
-            <Header/>
+            <Header />
             <Route exact path="/" component={Login} />
             <Route path="/search" render={() => <ArtistSearch />} />
             <Route

@@ -5,18 +5,25 @@ import { withRouter } from "react-router-dom";
 import { getArtistsNames, formatString } from "./util";
 import * as BasicCardStyles from "./styles/BasicCard";
 
-
 class AlbumCard extends React.Component {
   render() {
     const { album } = this.props;
 
     return (
       <Album>
-        {<BasicCardStyles.BasicImage src={album.images[0] ? album.images[0].url : null} />}
+        {
+          <BasicCardStyles.BasicImage
+            src={album.images[0] ? album.images[0].url : null}
+          />
+        }
         <BasicCardStyles.BasicCardBody>
           <div>
-            <BasicCardStyles.BasicCardTitle title={album.name}>{formatString(album.name, 45)}</BasicCardStyles.BasicCardTitle>
-            <BasicCardStyles.BasicCardSubtitle title={getArtistsNames(album.artists)}>
+            <BasicCardStyles.BasicCardTitle title={album.name}>
+              {formatString(album.name, 45)}
+            </BasicCardStyles.BasicCardTitle>
+            <BasicCardStyles.BasicCardSubtitle
+              title={getArtistsNames(album.artists)}
+            >
               {formatString(getArtistsNames(album.artists), 60)}
             </BasicCardStyles.BasicCardSubtitle>
           </div>

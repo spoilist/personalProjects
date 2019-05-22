@@ -7,7 +7,6 @@ import { getArtistName, getAlbumsList } from "./services/spotify-api";
 import * as BasicCardsListStyles from "./styles/BasicCardsList";
 import AlbumCard from "./AlbumCard";
 
-
 class AlbumsList extends React.Component {
   constructor(props) {
     super(props);
