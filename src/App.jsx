@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import Header from "./Header";
 import ArtistSearch from "./ArtistSearch";
-import AlbumsList from "./AlbumsList";
+import AlbumList from "./AlbumList";
 import Login from "./Login";
 import AuthProvider from "./Auth";
 
@@ -20,7 +20,7 @@ class App extends React.Component {
             <Route
               path="/albums/:artistId"
               render={({ match }) => (
-                <AlbumsList artistId={match.params.artistId} />
+                <AlbumList artistId={match.params.artistId} />
               )}
             />
           </ArtistSearchApp>

@@ -51,7 +51,7 @@ export default withRouter(ArtistCard);
 
 const Artist = styled(BasicCardStyles.BasicCard)`
   :hover {
-    opacity: 0.5;
+    opacity: 0.75;
     cursor: pointer;
   }
 `;

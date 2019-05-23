@@ -2,7 +2,7 @@ import axios from "axios";
 
 const endpoint = "https://api.spotify.com/v1/";
 
-function getArtistsList(searchedName, authToken, history) {
+function getArtistList(searchedName, authToken, history) {
   return axios
     .get(encodeURI(`${endpoint}search?q=*${searchedName}*&type=artist`), {
       headers: {
@@ -26,7 +26,7 @@ function getArtistName(artistId, authToken, history) {
     });
 }
 
-function getAlbumsList(artistId, authToken, history) {
+function getAlbumList(artistId, authToken, history) {
   return axios
     .get(`${endpoint}artists/${artistId}/albums`, {
       headers: {
@@ -38,4 +38,17 @@ function getAlbumsList(artistId, authToken, history) {
     });
 }
 
-export { getArtistsList, getArtistName, getAlbumsList };
+function getTrackList(albumId, authToken, history) {
+  return axios
+    .get(`${endpoint}albums/${albumId}/tracks`, {
+      headers: {
+        Authorization: `Bearer ${authToken}`
+      }
+    })
+    .catch(error => {
+      history.push("/");
+    });
+}
+
+
+export { getArtistList, getArtistName, getAlbumList, getTrackList };

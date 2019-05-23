@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 
 import withAuth from "./withAuth";
-import { getArtistName, getAlbumsList } from "./services/spotify-api";
+import { getArtistName, getAlbumList } from "./services/spotify-api";
 import * as BasicCardsListStyles from "./styles/BasicCardsList";
 import AlbumCard from "./AlbumCard";
 
-class AlbumsList extends React.Component {
+class AlbumList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,7 +18,7 @@ class AlbumsList extends React.Component {
   }
 
   componentDidMount() {
-    getAlbumsList(
+    getAlbumList(
       this.props.artistId,
       this.props.authToken,
       this.props.history
@@ -43,6 +43,7 @@ class AlbumsList extends React.Component {
           <Subtitle>Albums</Subtitle>
         </Header>
 
+
         <BasicCardsListStyles.BasicCardsList>
           {this.state.retrievedAlbums
             ? this.state.retrievedAlbums.map(album => {
@@ -55,7 +56,7 @@ class AlbumsList extends React.Component {
   }
 }
 
-export default withAuth(withRouter(AlbumsList));
+export default withAuth(withRouter(AlbumList));
 
 const Header = styled.div`
   margin: 40px 65px;

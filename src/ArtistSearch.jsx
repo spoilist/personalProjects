@@ -3,8 +3,8 @@ import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 import withAuth from "./withAuth";
-import { getArtistsList } from "./services/spotify-api";
-import ArtistsList from "./ArtistsList";
+import { getArtistList } from "./services/spotify-api";
+import ArtistList from "./ArtistList";
 
 class ArtistSearch extends React.Component {
   constructor(props) {
@@ -18,11 +18,9 @@ class ArtistSearch extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
- 
-
   handleChange(event) {
     this.setState({ searchedName: event.target.value }, () =>
-      getArtistsList(
+      getArtistList(
         this.state.searchedName,
         this.props.authToken,
         this.props.history
@@ -36,16 +34,15 @@ class ArtistSearch extends React.Component {
     return (
       <SearchPage>
         <SearchBarContainer isSearching={!!this.state.searchedName}>
-          <SearchBarText>Search for an artist:</SearchBarText>
           <StyledSearchBar
             type="search"
-            placeholder="Artist name"
+            placeholder="Enter artist name"
             value={this.state.searchedName}
             onChange={this.handleChange}
           />
         </SearchBarContainer>
         {this.state.retrievedArtists && (
-          <ArtistsList artistsToDisplay={this.state.retrievedArtists} />
+          <ArtistList artistsToDisplay={this.state.retrievedArtists} />
         )}
       </SearchPage>
     );
@@ -53,7 +50,7 @@ class ArtistSearch extends React.Component {
 }
 export default withRouter(withAuth(ArtistSearch));
 
-const SearchPage = styled.div`
+const SearchPage = styled.div `
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -61,27 +58,25 @@ const SearchPage = styled.div`
   justify-content: center;
 `;
 
-const SearchBarText = styled.div`
-  font-size: 36px;
-  font-weight: 900;
-  margin-bottom: 20px;
-  font-family: "spotifyFontBold";
-`;
-
 const SearchBarContainer = styled.div`
   padding: 30px 0;
-  margin-bottom: ${props => (props.isSearching ? 80 : 0)}px;
+  margin-bottom: ${props => (props.isSearching ? 60 : 80)}px;
 `;
 
 const StyledSearchBar = styled.input`
   width: 400px;
-  font-size: 28px;
+  font-size: 20px;
   font-family: "SpotifyFontRegular";
   border: 3px solid #1db954;
+  border-radius: 500px;
   color: #16873e;
   outline: none;
   appearance: none;
-  padding: 8px;
+  padding: 8px 0 8px 48px;
+  background-image: url("/search_icon.png");
+  background-repeat: no-repeat;
+  background-position: left 15px center;
+  background-size: 24px;
 
   ::placeholder {
     color: #6fd292;
