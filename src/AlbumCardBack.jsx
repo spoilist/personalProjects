@@ -31,9 +31,9 @@ class AlbumCardBack extends React.Component {
     const { album } = this.props;
 
     return (
-      <BasicAlbumCard>
-        <BasicCardStyles.BasicCardBody>
-          <div>
+      <StyledAlbumCard>
+        <StyledAlbumBody>
+
             <BasicCardStyles.BasicCardTitle title={album.name}>
               {formatString(album.name, 45)}
             </BasicCardStyles.BasicCardTitle>
@@ -42,19 +42,34 @@ class AlbumCardBack extends React.Component {
             >
               {formatString(getArtistsNames(album.artists), 60)}
             </BasicCardStyles.BasicCardSubtitle>
-          </div>
+
           <TrackList>
             {this.state.tracks.map((track) => {
-              return <li key={track.id}>{track.name}</li>
+              return <Track key={track.id}>{track.name}</Track>
             })}
           </TrackList>
-        </BasicCardStyles.BasicCardBody>
-      </BasicAlbumCard>
+        </StyledAlbumBody>
+      </StyledAlbumCard>
     );
   }
 }
 
 export default withAuth(withRouter(AlbumCardBack));
 
+const StyledAlbumCard = styled(BasicAlbumCard) `
+  bottom: 0;
+`;
+
+const StyledAlbumBody = styled(BasicCardStyles.BasicCardBody) `
+  justify-content: flex-start;
+`;
+
 const TrackList = styled.ul `
+  list-style-image: url("/itunes-note-brands.svg");
+  font-size: 18px;
+  padding-inline-start: 20px;
+`;
+
+const Track = styled.li `
+  padding: 5px;
 `;

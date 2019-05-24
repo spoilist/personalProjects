@@ -7,9 +7,9 @@ export const BasicAlbumCard = styled(BasicCardStyles.BasicCard) `
   position: absolute;
   top: 0;
   left: 0;
+  margin: 0;
+  border: 0;
 
-  display: flex;
-  flex-direction: column;
 
 
   /* display: flex;

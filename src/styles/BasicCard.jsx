@@ -7,7 +7,7 @@ export const BasicCard = styled.div `
   width: 280px;
   margin-left: 30px;
   margin-right: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border: 2px solid grey;
   justify-content: space-between;
   background-color: white;
