@@ -35,12 +35,11 @@ class AlbumCardFront extends React.Component {
             </StyledAlbumInfo>
           </BasicCardFooter>
         </BasicCardBody>
-        <Preview>
-          <PreviewButton href={album.external_urls.spotify} target="_blank">
-            Preview on{" "}
-            <span style={{ fontFamily: "spotifyFontBold" }}>Spotify</span>
-          </PreviewButton>
-        </Preview>
+
+        <PreviewButton href={album.external_urls.spotify} target="_blank">
+          Preview on{" "}
+          <span style={{ fontFamily: "spotifyFontBold" }}>Spotify</span>
+        </PreviewButton>
       </BasicAlbumCard>
     );
   }
@@ -57,15 +56,13 @@ const PreviewButton = styled.a`
   display: block;
   text-decoration: none;
   font-family: "spotifyFontRegular";
-`;
 
-const Preview = styled.div`
   background-color: #1db954;
-  color: white;
   text-align: center;
   padding: 8px 0;
 
   :hover {
     opacity: 0.8;
+    cursor: pointer;
   }
 `;
