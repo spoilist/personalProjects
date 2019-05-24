@@ -50,7 +50,7 @@ class ArtistSearch extends React.Component {
 }
 export default withRouter(withAuth(ArtistSearch));
 
-const SearchPage = styled.div `
+const SearchPage = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;

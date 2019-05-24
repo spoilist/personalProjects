@@ -4,7 +4,11 @@ import { withRouter } from "react-router-dom";
 import withAuth from "./withAuth";
 
 import { getArtistsNames, formatString } from "./util";
-import * as BasicCardStyles from "./styles/BasicCard";
+import {
+  BasicCardTitle,
+  BasicCardSubtitle,
+  BasicCardBody
+} from "./styles/BasicCard";
 import { BasicAlbumCard } from "./styles/BasicAlbumCard";
 import { getTrackList } from "./services/spotify-api";
 
@@ -13,8 +17,8 @@ class AlbumCardBack extends React.Component {
     super(props);
 
     this.state = {
-      tracks: [],
-    }
+      tracks: []
+    };
   }
 
   componentDidMount() {
@@ -33,43 +37,55 @@ class AlbumCardBack extends React.Component {
     return (
       <StyledAlbumCard>
         <StyledAlbumBody>
-
-            <BasicCardStyles.BasicCardTitle title={album.name}>
-              {formatString(album.name, 45)}
-            </BasicCardStyles.BasicCardTitle>
-            <BasicCardStyles.BasicCardSubtitle
-              title={getArtistsNames(album.artists)}
-            >
-              {formatString(getArtistsNames(album.artists), 60)}
-            </BasicCardStyles.BasicCardSubtitle>
-
-          <TrackList>
-            {this.state.tracks.map((track) => {
-              return <Track key={track.id}>{track.name}</Track>
-            })}
-          </TrackList>
+          <Title album={album.name} />
+          <Subtitle artists={getArtistsNames(album.artists)} />
+          <Tracklist tracks={this.state.tracks} />
         </StyledAlbumBody>
       </StyledAlbumCard>
     );
   }
 }
 
+function Title({ album }) {
+  return (
+    <BasicCardTitle title={album}>{formatString(album, 45)}</BasicCardTitle>
+  );
+}
+
+function Subtitle({ artists }) {
+  return (
+    <BasicCardSubtitle title={artists}>
+      {formatString(artists, 60)}
+    </BasicCardSubtitle>
+  );
+}
+
+function Tracklist({ tracks }) {
+  return (
+    <StyledList>
+      {tracks.map(track => {
+        return <Track key={track.id}>{track.name}</Track>;
+      })}
+    </StyledList>
+  );
+}
+
 export default withAuth(withRouter(AlbumCardBack));
 
-const StyledAlbumCard = styled(BasicAlbumCard) `
+const StyledAlbumCard = styled(BasicAlbumCard)`
   bottom: 0;
 `;
 
-const StyledAlbumBody = styled(BasicCardStyles.BasicCardBody) `
+const StyledAlbumBody = styled(BasicCardBody)`
   justify-content: flex-start;
 `;
 
-const TrackList = styled.ul `
+const StyledList = styled.ul`
   list-style-image: url("/itunes-note-brands.svg");
   font-size: 18px;
   padding-inline-start: 20px;
 `;
 
-const Track = styled.li `
+const Track = styled.li`
   padding: 5px;
 `;

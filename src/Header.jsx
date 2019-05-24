@@ -18,9 +18,7 @@ class Header extends React.Component {
           <HeaderText>Artist Search</HeaderText>
         </StyledLink>
       </StyledHeader>
-    ) : (
-      <div />
-    );
+    ) : null;
   }
 }
 

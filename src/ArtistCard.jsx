@@ -4,7 +4,14 @@ import { withRouter } from "react-router-dom";
 
 import StarRating from "./StarRating";
 import { formatFollowersNumber, formatString } from "./util";
-import * as BasicCardStyles from "./styles/BasicCard";
+import {
+  BasicImage,
+  BasicCardBody,
+  BasicCardTitle,
+  BasicCardSubtitle,
+  BasicCard,
+  BasicCardFooter
+} from "./styles/BasicCard";
 
 class ArtistCard extends React.Component {
   constructor(props) {
@@ -21,27 +28,23 @@ class ArtistCard extends React.Component {
 
     return (
       <Artist onClick={() => this.searchAlbums(artist.id)}>
-        {
-          <BasicCardStyles.BasicImage
-            src={artist.images[0] ? artist.images[0].url : null}
-          />
-        }
-        <BasicCardStyles.BasicCardBody>
+        {<BasicImage src={artist.images[0] ? artist.images[0].url : null} />}
+        <BasicCardBody>
           <div>
-            <BasicCardStyles.BasicCardTitle title={artist.name}>
+            <BasicCardTitle title={artist.name}>
               {formatString(artist.name, 60)}
-            </BasicCardStyles.BasicCardTitle>
-            <BasicCardStyles.BasicCardSubtitle>
+            </BasicCardTitle>
+            <BasicCardSubtitle>
               {formatFollowersNumber(this.props.artist.followers.total)}{" "}
               {this.props.artist.followers.total === 1
                 ? "follower"
                 : "followers"}
-            </BasicCardStyles.BasicCardSubtitle>
+            </BasicCardSubtitle>
           </div>
           <ArtistFooter>
             <StarRating popularity={this.props.artist.popularity} />
           </ArtistFooter>
-        </BasicCardStyles.BasicCardBody>
+        </BasicCardBody>
       </Artist>
     );
   }
@@ -49,14 +52,14 @@ class ArtistCard extends React.Component {
 
 export default withRouter(ArtistCard);
 
-const Artist = styled(BasicCardStyles.BasicCard)`
+const Artist = styled(BasicCard)`
   :hover {
     opacity: 0.75;
     cursor: pointer;
   }
 `;
 
-const ArtistFooter = styled(BasicCardStyles.BasicCardFooter)`
+const ArtistFooter = styled(BasicCardFooter)`
   position: relative;
   margin-bottom: 0;
 `;

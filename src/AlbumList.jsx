@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import withAuth from "./withAuth";
 import { getArtistName, getAlbumList } from "./services/spotify-api";
-import * as BasicCardsListStyles from "./styles/BasicCardsList";
+import { BasicCardsList } from "./styles/BasicCardsList";
 import AlbumCard from "./AlbumCard";
 
 class AlbumList extends React.Component {
@@ -12,7 +12,7 @@ class AlbumList extends React.Component {
     super(props);
 
     this.state = {
-      artistName: "",
+      artistName: null,
       retrievedAlbums: null
     };
   }
@@ -37,21 +37,20 @@ class AlbumList extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Header>
           <Title>{this.state.artistName}</Title>
           <Subtitle>Albums</Subtitle>
         </Header>
 
-
-        <BasicCardsListStyles.BasicCardsList>
+        <BasicCardsList>
           {this.state.retrievedAlbums
             ? this.state.retrievedAlbums.map(album => {
                 return <AlbumCard key={album.id} album={album} />;
               })
             : null}
-        </BasicCardsListStyles.BasicCardsList>
-      </div>
+        </BasicCardsList>
+      </>
     );
   }
 }

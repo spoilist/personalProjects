@@ -4,25 +4,23 @@ import { withRouter } from "react-router-dom";
 
 import AlbumCardFront from "./AlbumCardFront";
 import AlbumCardBack from "./AlbumCardBack";
-import * as BasicCardStyles from "./styles/BasicCard";
+import { BasicCard } from "./styles/BasicCard";
 
 class AlbumCard extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showingTracklist: false,
-    }
+      showingTracklist: false
+    };
 
     this.flipCard = this.flipCard.bind(this);
   }
 
   flipCard() {
-    console.log("state before: " + this.state.showingTracklist);
     this.setState({
       showingTracklist: !this.state.showingTracklist
-    })
-    console.log("state after: " + this.state.showingTracklist);    
+    });
   }
 
   render() {
@@ -30,13 +28,11 @@ class AlbumCard extends React.Component {
 
     return (
       <AlbumCardWrapper onClick={this.flipCard}>
-        {
-          this.state.showingTracklist ? (
-            <AlbumCardBack album={album} />
-          ) : (
-            <AlbumCardFront album={album} />
-          )
-        }
+        {this.state.showingTracklist ? (
+          <AlbumCardBack album={album} />
+        ) : (
+          <AlbumCardFront album={album} />
+        )}
       </AlbumCardWrapper>
     );
   }
@@ -44,7 +40,7 @@ class AlbumCard extends React.Component {
 
 export default withRouter(AlbumCard);
 
-const AlbumCardWrapper = styled(BasicCardStyles.BasicCard)`
+const AlbumCardWrapper = styled(BasicCard)`
   height: 480px;
   position: relative;
   overflow-y: auto;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BasicCard = styled.div `
+export const BasicCard = styled.div`
   display: flex;
   flex-direction: column;
   height: 450px;
@@ -14,15 +14,15 @@ export const BasicCard = styled.div `
 `;
 
 export const BasicImage = styled.div.attrs(({ src }) => ({
-  src: (src ? src : "https://britz.mcmaster.ca/images/nouserimage.gif/image"),
-})) `
+  src: src ? src : "https://britz.mcmaster.ca/images/nouserimage.gif/image"
+}))`
   background-image: url(${props => props.src});
   height: 280px;
   background-size: cover;
   border-bottom: 2px solid grey;
 `;
 
-export const BasicCardBody = styled.div `
+export const BasicCardBody = styled.div`
   flex: 1 1 auto;
   margin: 0 15px;
 
@@ -31,19 +31,23 @@ export const BasicCardBody = styled.div `
   justify-content: space-between;
 `;
 
-export const BasicCardTitle = styled.p `
+export const BasicCardTitle = styled.h1`
   font-size: 20px;
   margin-bottom: 0;
+  font-weight: normal;
+  font-family: "spotifyFontRegular";
 `;
 
-export const BasicCardSubtitle = styled.p `
+export const BasicCardSubtitle = styled.h2`
   font-size: 14px;
   color: grey;
   margin-top: 6px;
   margin-bottom: 0;
+  font-weight: normal;
+  font-family: "spotifyFontRegular";
 `;
 
-export const BasicCardFooter = styled.div `
+export const BasicCardFooter = styled.div`
   position: relative;
   margin-bottom: 10px;
 `;

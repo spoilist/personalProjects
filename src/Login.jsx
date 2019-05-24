@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import * as utilFunctions from "./util";
+import { redirectUrlToSpotifyLogin } from "./util";
 
 class Login extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class Login extends React.Component {
       <StyledLogin>
         <LoginHeader>
           <Title>Welcome to Spotify Artist Search</Title>
-          <StyledButton href={utilFunctions.redirectUrlToSpotifyLogin()}>
+          <StyledButton href={redirectUrlToSpotifyLogin()}>
             Login to the App
           </StyledButton>
         </LoginHeader>
